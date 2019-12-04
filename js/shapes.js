@@ -18,24 +18,60 @@ window.onload = function() {
     // there are six event listeners being added for the staff solutions. you'll have an
     // equivalent set of six event listeners for your solutions. the first one is done for you.
 
+
     document.getElementById("hello").onclick = sayHello;
+    document.getElementById("rectangle").onclick = drawRectangle;
 }
 
 /*
  * Exercise 1.
  */
 
-const sayHello = function() {
-    // write your exercise 1 code here
-};
+ const sayHello = function() {
+   let message = window.prompt("Message:");
+   while (message.length > 50){
+     window.alert("Your message is too long. Please keep your message under 50 characters.");
+     message = window.prompt("Message:")
+   }
+     const drawing = document.getElementById('student-drawing-1');
+     const output1 = drawing.getContext('2d');
+     output1.font = '48px sans-serif';
+     output1.clearRect(0, 0, drawing.width, drawing.height);
+     output1.strokeText(message, 30, 70, 994);
+ };
 
 /*
  * Exercise 2.
  */
 
-const drawRectangle = function() {
+ const drawRectangle = function() {
+     let width = window.prompt("Width:");
+     let height = window.prompt("Height:");
+     let xCoordinate = window.prompt("X:");
+     let yCoordinate = window.prompt("Y:");
+
+     while (width < 1 || width > 1024){
+       window.alert("Your width must be between 1 and 1024.");
+       width = window.prompt("Width:")
+     }
+     while (height < 1 || height > 512){
+       window.alert("Your height must be between 1 and 512.");
+       height = window.prompt("Width:")
+     }
+     while (xCoordinate < 1 || xCoordinate > 1024){
+       window.alert("Your x-coordinate must be between 1 and 1024.");
+       height = window.prompt("Width:")
+     }
+     while (yCoordinate < 1 || yCoordinate > 512){
+       window.alert("Your y-coordinate must be between 1 and 512.");
+       height = window.prompt("Width:")
+     }
+
+   };
+
+
+}
     // write your exercise 2 code here
-};
 
 /*
  * Exercise 3.
