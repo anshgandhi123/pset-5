@@ -28,79 +28,92 @@ window.onload = function() {
  */
 
  const sayHello = function() {
+   const drawing = document.getElementById('student-canvas-1');
+   const output1 = drawing.getContext('2d');
+   output1.clearRect(0, 0, drawing.width, drawing.height);
+
    let message = window.prompt("Message:");
    while (message.length > 50){
      window.alert("Your message is too long. Please keep your message under 50 characters.");
      message = window.prompt("Message:")
    }
-     const drawing = document.getElementById('student-drawing-1');
-     const output1 = drawing.getContext('2d');
-     output1.font = '48px sans-serif';
-     output1.clearRect(0, 0, drawing.width, drawing.height);
+     output1.font = "48px sans-serif";
      output1.strokeText(message, 30, 70, 994);
  };
 
-/*
- * Exercise 2.
- */
+
+ /*
+  * Exercise 2.
+  */
 
  const drawRectangle = function() {
-     let width = window.prompt("Width:");
-     let height = window.prompt("Height:");
-     let xCoordinate = window.prompt("X:");
-     let yCoordinate = window.prompt("Y:");
+   const drawing2 = document.getElementById('student-canvas-2');
+   const output2 = drawing2.getContext('2d');
+   output2.clearRect(0, 0, drawing2.width, drawing2.height);
 
-     while (width < 1 || width > 1024){
-       window.alert("Your width must be between 1 and 1024.");
-       width = window.prompt("Width:")
-     }
-     while (height < 1 || height > 512){
-       window.alert("Your height must be between 1 and 512.");
-       height = window.prompt("Width:")
-     }
-     while (xCoordinate < 1 || xCoordinate > 1024){
-       window.alert("Your x-coordinate must be between 1 and 1024.");
-       height = window.prompt("Width:")
-     }
-     while (yCoordinate < 1 || yCoordinate > 512){
-       window.alert("Your y-coordinate must be between 1 and 512.");
-       height = window.prompt("Width:")
-     }
-
+   do {
+      var width = window.prompt("Width:")
+      var height = window.prompt("Height:")
+      var xcoordinate = window.prompt("X:")
+      var ycoordinate = window.prompt("Y:")
+    }
+    while (width > 1024 || width < 1 || height > 512 || height < 1 || xcoordinate > 1024 || xcoordinate < 1 || ycoordinate > 512 || ycoordinate < 1) {
+    if (width > 1024 || width < 1) {
+      window.prompt("Your width must be between 1 and 1024.")
+    }
+    else if (height > 512 || height < 1) {
+      window.prompt("Your height must be between 1 and 512.")
+    }
+    else if (xcoordinate > 1024 || xcoordinate < 1) {
+      window.prompt("Your x-coordinate must be between 1 and 1024.")
+    }
+    else if (ycoordinate > 512 || ycoordinate < 1) {
+      window.prompt("Your y-coordinate must be between 1 and 512.")
+    }
+    else if (isNaN(width) || isNaN(height) || isNaN(xcoordinate) || isNaN(ycoordinate)) {
+      window.prompt("One of your values is not a number.")
+    }
+    else if (xcoordinate + width >= 1024 || ycoordinate + height >= 512) {
+    window.alert("Your rectangle won't fit on the canvas.")
    };
+   var width = window.prompt("Width:")
+   var height = window.prompt("Height:")
+   var xcoordinate = window.prompt("X:")
+   var ycoordinate = window.prompt("Y:")
+}
 
+    output2.strokeRect(xcoordinate, ycoordinate, width, height);
 
 }
-    // write your exercise 2 code here
 
-/*
- * Exercise 3.
- */
+ /*
+  * Exercise 3.
+  */
 
-const drawColoredRectangle = function() {
-    // write your exercise 3 code here
-};
+ const drawColoredRectangle = function() {
+     // write your exercise 3 code here
+ };
 
-/*
- * Exercise 4.
- */
+ /*
+  * Exercise 4.
+  */
 
-const drawTriangle = function() {
-    // write your exercise 4 code here
-};
+ const drawTriangle = function() {
+     // write your exercise 4 code here
+ };
 
-/*
- * Exercise 5.
- */
+ /*
+  * Exercise 5.
+  */
 
-const drawFace = function() {
-    // write your exercise 4 code here
-};
+ const drawFace = function() {
+     // write your exercise 4 code here
+ };
 
-/*
- * Exercise 6 (extra credit).
- */
+ /*
+  * Exercise 6 (extra credit).
+  */
 
-const drawPyramid = function() {
-    // write your exercise 5 code here
-};
+ const drawPyramid = function() {
+     // write your exercise 5 code here
+ };
