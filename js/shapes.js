@@ -81,9 +81,7 @@ window.onload = function() {
    var xcoordinate = window.prompt("X:")
    var ycoordinate = window.prompt("Y:")
 }
-
-    output2.strokeRect(xcoordinate, ycoordinate, width, height);
-
+output2.strokeRect(xcoordinate, ycoordinate, width, height);
 }
 
  /*
