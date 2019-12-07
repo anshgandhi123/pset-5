@@ -51,36 +51,48 @@ window.onload = function() {
    const output2 = drawing2.getContext('2d');
    output2.clearRect(0, 0, drawing2.width, drawing2.height);
 
-   do {
-      var width = window.prompt("Width:")
-      var height = window.prompt("Height:")
-      var xcoordinate = window.prompt("X:")
-      var ycoordinate = window.prompt("Y:")
-    }
-    while (width > 1024 || width < 1 || height > 512 || height < 1 || xcoordinate > 1024 || xcoordinate < 1 || ycoordinate > 512 || ycoordinate < 1) {
+  var width = window.prompt("Width:")
+  var width = Number(width);
+  var height = window.prompt("Height:")
+  var height = Number(height);
+  var xcoordinate = window.prompt("X:")
+  var xcoordinate = Number(xcoordinate);
+  var ycoordinate = window.prompt("Y:")
+  var ycoordinate = Number(ycoordinate);
+
+    while ((width > 1024) || (width < 1) || (height > 512) || (height < 1) || (xcoordinate > 1024) || (xcoordinate < 1) || (ycoordinate > 512) || (ycoordinate < 1) || (Number.isNaN(width)) || (Number.isNaN(height)) || (Number.isNaN(xcoordinate)) || (Number.isNaN(ycoordinate)) || (xcoordinate + width > 1024) || (ycoordinate + width > 512)) {
     if (width > 1024 || width < 1) {
-      window.prompt("Your width must be between 1 and 1024.")
+      alert("Your width must be between 1 and 1024.")
     }
     else if (height > 512 || height < 1) {
-      window.prompt("Your height must be between 1 and 512.")
+      alert("Your height must be between 1 and 512.")
     }
     else if (xcoordinate > 1024 || xcoordinate < 1) {
-      window.prompt("Your x-coordinate must be between 1 and 1024.")
+      alert("Your x-coordinate must be between 1 and 1024.")
     }
     else if (ycoordinate > 512 || ycoordinate < 1) {
-      window.prompt("Your y-coordinate must be between 1 and 512.")
+      alert("Your y-coordinate must be between 1 and 512.")
     }
-    else if (isNaN(width) || isNaN(height) || isNaN(xcoordinate) || isNaN(ycoordinate)) {
-      window.prompt("One of your values is not a number.")
+    else if (Number.isNaN(width) || Number.isNaN(height) || Number.isNaN(xcoordinate) || Number.isNaN(ycoordinate)) {
+      alert("One of your values is not a number.")
     }
-    else if (xcoordinate + width >= 1024 || ycoordinate + height >= 512) {
-    window.alert("Your rectangle won't fit on the canvas.")
-   };
-   var width = window.prompt("Width:")
-   var height = window.prompt("Height:")
-   var xcoordinate = window.prompt("X:")
-   var ycoordinate = window.prompt("Y:")
+    else if (xcoordinate + width > 1024) {
+      alert("Your rectangle won't fit on the canvas.")
+    }
+    else if (ycoordinate + height > 512) {
+      alert("Your rectangle won't fit on the canvas.")
+    }
+    var width = window.prompt("Width:")
+    var width = Number(width);
+    var height = window.prompt("Height:")
+    var height = Number(height);
+    var xcoordinate = window.prompt("X:")
+    var xcoordinate = Number(xcoordinate);
+    var ycoordinate = window.prompt("Y:")
+    var ycoordinate = Number(ycoordinate);
 }
+
+
 output2.strokeRect(xcoordinate, ycoordinate, width, height);
 }
 
