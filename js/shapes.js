@@ -131,6 +131,7 @@ output2.strokeRect(xcoordinate, ycoordinate, width, height);
   * Exercise 4.
   */
   // issue with code, mesage appears twice in 50, 1200, 36 scenario
+  // issue with sides, should report same, but isn't
 
 
   const drawTriangle = function() {
@@ -226,6 +227,6 @@ output2.strokeRect(xcoordinate, ycoordinate, width, height);
   * Exercise 6 (extra credit).
   */
 
- const drawPyramid = function() {
+  const drawPyramid = function() {
 
  };
