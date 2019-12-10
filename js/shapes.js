@@ -24,7 +24,7 @@ window.onload = function() {
     document.getElementById("colored-rectangle").onclick = drawColoredRectangle;
     document.getElementById("triangle").onclick = drawTriangle;
     document.getElementById("smile").onclick = drawFace;
-
+    document.getElementById("pyramid").onclick = drawPyramid;
 }
 
 /*
@@ -44,7 +44,6 @@ window.onload = function() {
      output1.font = "48px sans-serif";
      output1.strokeText(message, 30, 70, 994);
  };
-
 
  /*
   * Exercise 2.
@@ -130,51 +129,48 @@ output2.strokeRect(xcoordinate, ycoordinate, width, height);
  /*
   * Exercise 4.
   */
-  // issue with code, mesage appears twice in 50, 1200, 36 scenario
-  // issue with sides, should report same, but isn't
 
 
-  const drawTriangle = function() {
-    const drawing4 = document.getElementById('student-canvas-4');
-    const output4 = drawing4.getContext('2d');
-    output4.clearRect(0, 0, drawing4.width, drawing4.height);
+    const drawTriangle = function() {
+      const drawing4 = document.getElementById('student-canvas-4');
+        const output4 = drawing4.getContext('2d');
+        output4.clearRect(0, 0, drawing4.width, drawing4.height);
 
-      var height = Number(window.prompt("Side 1: "))
-      var width = Number(window.prompt("Side 2: "))
-      var hypotenuse = Number(window.prompt("Side 3: "))
-      while (((height*height) + (width*width) != hypotenuse*hypotenuse) || isNaN(height) || isNaN(width) || isNaN(hypotenuse) || height > 512 || width > 1024 || hypotenuse > 1144.866804) {
+        do {
+          var firstSide = Number(window.prompt("Side 1: "));
+          var secondSide = Number(window.prompt("Side 2: "));
+          var thirdSide = Number(window.prompt("Side 3: "));
 
-        if ((height*height) + (width*width) != hypotenuse*hypotenuse) {
-              alert("That's not a valid right triangle.")
+          var height = Math.min(firstSide, secondSide, thirdSide)
+          var hypotenuse = Math.max(firstSide, secondSide, thirdSide)
+          var base = Math.sqrt(hypotenuse*hypotenuse - height*height)
+
+          if (base == 0 && height == 0 && hypotenuse == 0) {
+            break;
           }
-        else if (isNaN(height) || isNaN(width) || isNaN(hypotenuse)) {
-              alert("One of your sides is not a number.")
+
+          if (base*base + height*height != hypotenuse*hypotenuse || base == 0 || height == 0 || hypotenuse == 0  || firstSide+secondSide+thirdSide-hypotenuse-height != base) {
+            window.alert("That's not a valid right triangle.")
           }
-        else if (height > 512 || width > 1024 || hypotenuse > 1144.86684) {
-              alert("Your triangle won't fit on the canvas.")
+          else if (isNaN(firstSide) || isNaN(secondSide) || isNaN(thirdSide)) {
+            window.alert("One of your sides is not a number.")
           }
-          var height = window.prompt("Side 1: ")
-          var height = Number(height);
-          var width = window.prompt("Side 2: ")
-          var width = Number(width);
-          var hypotenuse = window.prompt("Side 3: ")
-          var hypotenuse = Number(hypotenuse);
+          else if (base > 1024 || height > 512 || hypotenuse > 1310720) {
+            window.alert("Your triangle won't fit on the canvas.")
+          }
+        }  while ((Math.floor(base)*Math.floor(base) + height*height != hypotenuse*hypotenuse) || isNaN(firstSide) || isNaN(secondSide) || isNaN(thirdSide) || base > 1024 || height > 512 || hypotenuse > 1144.8664 || base == 0 || height == 0 || hypotenuse == 0)
+
+        if ((base*base + height*height == hypotenuse*hypotenuse) && (base < 1024 && height < 512 && hypotenuse < 1144.8664) && (base != 0 && height != 0 && hypotenuse != 0) && (base != null && height != null && hypotenuse != null)) {
+          height = height + 25
+          base = base + 25
+          output4.beginPath();
+          output4.moveTo(25, 25);
+          output4.lineTo(25, height);
+          output4.lineTo(base, height)
+          output4.lineTo(25, 25)
+          output4.stroke();
+        };
       }
-
-    var height = Math.min(height, width, hypotenuse)
-    var hypotenuse = Math.max(height, width, hypotenuse)
-    var base = Math.sqrt(hypotenuse*hypotenuse - height*height)
-
-    height = height + 25
-    base = base + 25
-
-    output4.beginPath();
-    output4.moveTo(25, 25);
-    output4.lineTo(25, height);
-    output4.lineTo(base, height)
-    output4.lineTo(25, 25)
-    output4.stroke();
-  };
 
  /*
   * Exercise 5.
@@ -193,10 +189,10 @@ output2.strokeRect(xcoordinate, ycoordinate, width, height);
       if (radius < 32) {
         alert("Your radius must be at least 32.")
       }
-      if (isNaN(radius)) {
+      else if (isNaN(radius)) {
         alert("Your radius is not a number.")
       }
-      if (radius > 256) {
+      else if (radius > 256) {
         alert("Your smiley face won't fit on the canvas.")
       }
     } while (radius > 256 || isNaN(radius) || radius < 32)
@@ -228,5 +224,45 @@ output2.strokeRect(xcoordinate, ycoordinate, width, height);
   */
 
   const drawPyramid = function() {
+    const drawing6 = document.getElementById('student-canvas-6');
+    const output6 = drawing6.getContext('2d');
+    output6.clearRect(0, 0, drawing6.width, drawing6.height);
+    var distance = 0
+    var height = 0
+    var changingDistance = 0
+    var changingHeight = 0
+    var counter = 5
+    var side;
 
- };
+    do {
+        var side = window.prompt("Side: ")
+        if (side == null) {
+          break;
+        }
+        if (side < 1) {
+          window.alert("Your block size must be at least 1.")
+        }
+        else if (side > 100) {
+          window.alert("Your pyramid won't fit on the canvas")
+        }
+        else if (isNaN(side)) {
+          window.alert("Your block size is not a number.")
+        }
+      } while (isNaN(side) || side >= 101 || side < 1)
+
+      for (i = 5; i > 0; i--) {
+        counter = i
+        while(counter >= 1) {
+          output6.beginPath();
+          output6.rect(10 + Number(distance), (502 - side) - Number(height), Number(side), Number(side));
+          output6.stroke();
+          output6.closePath();
+          distance = Number(distance) + Number(side)
+          counter--
+        }
+        changingDistance++
+        distance = changingDistance * (1/2 * side)
+        changingHeight++
+        height = changingHeight * side
+      }
+    };
