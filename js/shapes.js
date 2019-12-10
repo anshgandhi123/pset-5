@@ -18,7 +18,6 @@ window.onload = function() {
     // there are six event listeners being added for the staff solutions. you'll have an
     // equivalent set of six event listeners for your solutions. the first one is done for you.
 
-
     document.getElementById("hello").onclick = sayHello;
     document.getElementById("rectangle").onclick = drawRectangle;
     document.getElementById("colored-rectangle").onclick = drawColoredRectangle;
@@ -130,7 +129,6 @@ output2.strokeRect(xcoordinate, ycoordinate, width, height);
   * Exercise 4.
   */
 
-
     const drawTriangle = function() {
       const drawing4 = document.getElementById('student-canvas-4');
         const output4 = drawing4.getContext('2d');
@@ -200,7 +198,6 @@ output2.strokeRect(xcoordinate, ycoordinate, width, height);
     var radiusOfEyes = 0.15 * radius
     var radiusOfMouth = 0.7 * radius
 
-
     output5.beginPath();
     output5.arc(512, 256, radius, 0, 2 * Math.PI);
     output5.stroke();
@@ -253,15 +250,15 @@ output2.strokeRect(xcoordinate, ycoordinate, width, height);
       height = Number(height);
       side = Number(side);
       for (i = 5; i > 0; i--) {
-        counter = i
-        while(counter >= 1) {
-          output6.beginPath();
-          output6.rect(10 + distance, (502 - side) - height, side,  side);
-          output6.stroke();
-          output6.closePath();
-          distance = distance + side
-          counter--
-        }
+      counter = i
+      while(counter >= 1) {
+        output6.beginPath();
+        output6.rect(10 + distance, (502 - side) - height, side,  side);
+        output6.stroke();
+        output6.closePath();
+        distance = distance + side
+        counter--
+      }
         changingDistance++
         distance = changingDistance * (1/2 * side)
         changingHeight++
