@@ -248,16 +248,18 @@ output2.strokeRect(xcoordinate, ycoordinate, width, height);
         else if (isNaN(side)) {
           window.alert("Your block size is not a number.")
         }
-      } while (isNaN(side) || side >= 101 || side < 1)
-
+      } while (isNaN(side) || side > 100 || side < 1)
+      distance = Number(distance);
+      height = Number(height);
+      side = Number(side);
       for (i = 5; i > 0; i--) {
         counter = i
         while(counter >= 1) {
           output6.beginPath();
-          output6.rect(10 + Number(distance), (502 - side) - Number(height), Number(side), Number(side));
+          output6.rect(10 + distance, (502 - side) - height, side,  side);
           output6.stroke();
           output6.closePath();
-          distance = Number(distance) + Number(side)
+          distance = distance + side
           counter--
         }
         changingDistance++
