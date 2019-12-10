@@ -29,10 +29,12 @@ window.onload = function() {
 /*
  * Exercise 1.
  */
+ // check for debugging 
 
  const sayHello = function() {
    const drawing = document.getElementById('student-canvas-1');
    const output1 = drawing.getContext('2d');
+
    output1.clearRect(0, 0, drawing.width, drawing.height);
 
    let message = window.prompt("Message: ");
@@ -49,6 +51,7 @@ window.onload = function() {
   */
 
  const drawRectangle = function() {
+
    const drawing2 = document.getElementById('student-canvas-2');
    const output2 = drawing2.getContext('2d');
    output2.clearRect(0, 0, drawing2.width, drawing2.height);
