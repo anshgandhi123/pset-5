@@ -32,10 +32,10 @@ window.onload = function() {
  // check for debugging
 
  const sayHello = function() {
-   const drawing = document.getElementById('student-canvas-1');
-   const output1 = drawing.getContext('2d');
+   const drawing1 = document.getElementById('student-canvas-1');
+   const output1 = drawing1.getContext('2d');
 
-   output1.clearRect(0, 0, drawing.width, drawing.height);
+   output1.clearRect(0, 0, drawing1.width, drawing1.height);
 
      do {
        var message = window.prompt("Message: ")
@@ -188,13 +188,13 @@ window.onload = function() {
         break;
       }
       if (radius < 32) {
-        alert("Your radius must be at least 32.")
+        window.alert("Your radius must be at least 32.")
       }
       else if (isNaN(radius)) {
-        alert("Your radius is not a number.")
+        window.alert("Your radius is not a number.")
       }
       else if (radius > 256) {
-        alert("Your smiley face won't fit on the canvas.")
+        window.alert("Your smiley face won't fit on the canvas.")
       }
     } while (radius > 256 || isNaN(radius) || radius < 32)
 
