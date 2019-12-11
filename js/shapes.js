@@ -37,14 +37,21 @@ window.onload = function() {
 
    output1.clearRect(0, 0, drawing.width, drawing.height);
 
-   let message = window.prompt("Message: ");
-   while (message.length > 50){
-     window.alert("Your message is too long. Please keep your message under 50 characters.");
-     message = window.prompt("Message:")
-   }
-     output1.font = "48px sans-serif";
-     output1.strokeText(message, 30, 70, 994);
- };
+     do {
+       var message = window.prompt("Message: ")
+       if (message == null) {
+         break;
+       }
+       if (message.length > 50) {
+         window.alert("Your message is too long. Keep it under 50 characters")
+       }
+     } while(message.length > 50)
+
+     if (message != null) {
+       output1.font = "48px sans-serif";
+       output1.strokeText(message, 30, 70, 994);
+     }
+   };
 
  /*
   * Exercise 2.
