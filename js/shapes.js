@@ -262,4 +262,4 @@ const sayHello = function() {
         changingHeight++
         height = changingHeight * side
   }
-};
+}; 
