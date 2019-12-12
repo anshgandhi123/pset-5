@@ -46,7 +46,6 @@ window.onload = function() {
          window.alert("Your message is too long. Keep it under 50 characters")
        }
      } while(message.length > 50)
-
      if (message != null) {
        output1.font = "48px sans-serif";
        output1.strokeText(message, 30, 70, 994);
@@ -66,32 +65,41 @@ window.onload = function() {
     var height = 0;
     var xcoordinate = 0;
     var ycoordinate = 0;
+
     do {
       var width = window.prompt("Width: ")
       var height = window.prompt("Height: ")
       var xcoordinate = window.prompt("X: ")
       var ycoordinate = window.prompt("Y: ")
+
       if (width == null || height == null || xcoordinate == null || ycoordinate == null) {
         break;
       }
+
       if (width > 1024 || width < 1) {
         window.alert("Your width must be between 1 and 1024.")
       }
+
       else if (height > 512 || height < 1) {
         window.alert("Your height must be between 1 and 512.")
       }
+
       else if (xcoordinate < 1 || xcoordinate > 1024) {
         window.alert("Your x-coordinate must be between 1 and 1024.")
       }
+
       else if (ycoordinate < 1 || ycoordinate > 512) {
         window.alert("Your y-coordinate must be between 1 and 512.")
       }
+
       else if (isNaN(width) || isNaN(height) || isNaN(xcoordinate) || isNaN(ycoordinate)) {
         window.alert("One of your values is not a number.")
       }
+
       else if (Number(width) + Number(xcoordinate) > 1024 || Number(height) + Number(ycoordinate) > 512) {
         window.alert("Your rectangle won't fit on the canvas.")
       }
+
     } while (width > 1024 || width < 1 || height > 512 || height < 1 || xcoordinate < 1 || xcoordinate > 1024 || ycoordinate < 1 || ycoordinate > 512 || isNaN(width) || isNaN(height) || isNaN(xcoordinate) || isNaN(ycoordinate) || Number(width) + Number(xcoordinate) > 1024 || Number(height) + Number(ycoordinate) > 512)
 
     if (!(width == null) && !(height == null) && !(xcoordinate == null) && !(ycoordinate == null)) {
@@ -101,6 +109,7 @@ window.onload = function() {
       output2.stroke();
     }
   };
+
  /*
   * Exercise 3.
   */
@@ -109,23 +118,25 @@ window.onload = function() {
     const drawing3 = document.getElementById('student-canvas-3');
     const output3 = drawing3.getContext('2d');
     output3.clearRect(0, 0, drawing3.width, drawing3.height);
+
     do {
       var color = (window.prompt("Color: "))
       if (color == null) {
         break;
       }
+
       color = String(color)
       var rectangleColor = color.toLowerCase()
       if (rectangleColor != "black" && rectangleColor != "blue" && rectangleColor != "green" && rectangleColor != "orange" && rectangleColor != "purple" && rectangleColor != "red" && rectangleColor != "yellow") {
         window.alert(color + " is not a supported color.")
       }
+
     } while (rectangleColor != "black" && rectangleColor != "blue" && rectangleColor != "green" && rectangleColor != "orange" && rectangleColor != "purple" && rectangleColor != "red" && rectangleColor != "yellow")
 
     if (color != null) {
       output3.fillStyle = rectangleColor;
       output3.fillRect(10, 10, 100, 50);
     }
-
   };
 
  /*
