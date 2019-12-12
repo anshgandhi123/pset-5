@@ -29,7 +29,6 @@ window.onload = function() {
 /*
  * Exercise 1.
  */
- // check for debugging
 
  const sayHello = function() {
    const drawing1 = document.getElementById('student-canvas-1');
